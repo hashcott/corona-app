@@ -48,7 +48,6 @@ export const fetchDataCountry = async (country) => {
       deaths: deaths.value,
       lastUpdate,
     };
-    console.log(modifierData);
     return modifierData;
   } catch (error) {}
 };
