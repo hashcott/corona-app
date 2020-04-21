@@ -7,7 +7,11 @@ class App extends React.Component {
   state = { total: {}, daily: [], country: 'global' };
 
   handleCountry = async (country) => {
-    this.setState({ total: await fetchDataCountry(country), country });
+    if (country != 'global') {
+      this.setState({ total: await fetchDataCountry(country), country });
+    } else {
+      this.setState({ total: await fetchData(), country: 'global' });
+    }
   };
   async componentDidMount() {
     this.setState({ total: await fetchData() });
